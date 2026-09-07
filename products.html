@@ -850,7 +850,7 @@
 </div>
 
 <script>
-// كل المنتجات مُدارة من هنا كسكربت واحد — لإضافة منتج جديد فقط أضف عنصر لهذه القائمة
+// كل المنتجات مُدارة من هنا كسكربت واحد - لإضافة منتج جديد فقط أضف عنصر لهذه القائمة
 const products = [
     { category: '1',
     icon: 'fa-bottle-droplet',
@@ -918,15 +918,35 @@ const products = [
 	tag: 'a',
 	image: 'PHOTO-2026-09-01-19-31-30.jpg' },
 
-{ category: '1',
+	{ category: '1',
 	icon: 'fa-box',  
 	name: 'زيت العنبر الفواح',
 	price: '7.900 ر.ع',
 	tag: 'a',
 	image: 'PHOTO-2026-09-01-19-31-22.jpg' }
-	];
+];
 
-
+// باقي صور المتجر التي لم تُستخدم كصورة رئيسية لمنتج، تُعرض في معرض الصور أسفل الصفحة
+const usedImages = new Set(products.map(p => p.image.split('/').pop()));
+const allPhotoFiles = [
+    'PHOTO-2026-09-01-19-31-22.jpg','PHOTO-2026-09-01-19-31-22_1.jpg','PHOTO-2026-09-01-19-31-23.jpg',
+    'PHOTO-2026-09-01-19-31-23_1.jpg','PHOTO-2026-09-01-19-31-23_2.jpg','PHOTO-2026-09-01-19-31-23_3.jpg',
+    'PHOTO-2026-09-01-19-31-23_4.jpg','PHOTO-2026-09-01-19-31-24.jpg','PHOTO-2026-09-01-19-31-24_1.jpg',
+    'PHOTO-2026-09-01-19-31-24_2.jpg','PHOTO-2026-09-01-19-31-24_3.jpg','PHOTO-2026-09-01-19-31-24_4.jpg',
+    'PHOTO-2026-09-01-19-31-25.jpg','PHOTO-2026-09-01-19-31-25_1.jpg','PHOTO-2026-09-01-19-31-25_2.jpg',
+    'PHOTO-2026-09-01-19-31-25_3.jpg','PHOTO-2026-09-01-19-31-26.jpg','PHOTO-2026-09-01-19-31-26_1.jpg',
+    'PHOTO-2026-09-01-19-31-26_2.jpg','PHOTO-2026-09-01-19-31-26_3.jpg','PHOTO-2026-09-01-19-31-26_4.jpg',
+    'PHOTO-2026-09-01-19-31-27.jpg','PHOTO-2026-09-01-19-31-27_1.jpg','PHOTO-2026-09-01-19-31-27_2.jpg',
+    'PHOTO-2026-09-01-19-31-27_3.jpg','PHOTO-2026-09-01-19-31-28.jpg','PHOTO-2026-09-01-19-31-28_1.jpg',
+    'PHOTO-2026-09-01-19-31-28_2.jpg','PHOTO-2026-09-01-19-31-28_3.jpg','PHOTO-2026-09-01-19-31-29.jpg',
+    'PHOTO-2026-09-01-19-31-29_1.jpg','PHOTO-2026-09-01-19-31-29_2.jpg','PHOTO-2026-09-01-19-31-29_3.jpg',
+    'PHOTO-2026-09-01-19-31-29_4.jpg','PHOTO-2026-09-01-19-31-30.jpg','PHOTO-2026-09-01-19-31-30_1.jpg',
+    'PHOTO-2026-09-01-19-31-30_2.jpg','PHOTO-2026-09-01-19-31-30_3.jpg','PHOTO-2026-09-01-19-31-31.jpg',
+    'PHOTO-2026-09-01-19-31-31_1.jpg','PHOTO-2026-09-01-19-31-31_2.jpg','PHOTO-2026-09-01-19-31-31_3.jpg',
+    'PHOTO-2026-09-01-19-31-31_4.jpg','PHOTO-2026-09-01-19-31-32.jpg','PHOTO-2026-09-01-19-31-32_1.jpg',
+    'PHOTO-2026-09-01-19-31-32_2.jpg'
+];
+const galleryPhotos = allPhotoFiles.filter(f => !usedImages.has(f));
 
 const catLabels = {
     1: 'زيوت طبية',
@@ -941,6 +961,7 @@ const badgeLabels = {
     b: 'كمية محدودة',
 	c: 'للأطفال'
 };
+
 function renderProducts() {
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = products.map((p, i) => `
@@ -969,7 +990,7 @@ function renderProducts() {
 function renderGallery() {
     const grid = document.getElementById('galleryGrid');
     grid.innerHTML = galleryPhotos.map(f => `
-        <img src="images/products/${f}" alt="صورة من متجر العطار محمد" loading="lazy">
+        <img src="${f}" alt="صورة من متجر العطار محمد" loading="lazy">
     `).join('');
 
     grid.querySelectorAll('img').forEach(img => {
@@ -1008,13 +1029,9 @@ chips.forEach(chip => {
    نظام سلة المشتريات + الطلب عبر واتساب
    ============================ */
 
-// رقم الواتساب الخاص بالمحل — استبدله برقمك الحقيقي بصيغة دولية بدون + أو صفر البداية
-// مثال عُماني: 96891234567
 const WHATSAPP_NUMBER = '96897104979';
-
 const CART_STORAGE_KEY = 'attar_mohammed_cart';
 
-// يحوّل نص السعر مثل "12.500 ر.ع" إلى رقم 12.5 لاستخدامه في الحسابات
 function parsePrice(priceStr) {
     const match = String(priceStr).replace(/,/g, '').match(/[\d.]+/);
     return match ? parseFloat(match[0]) : 0;
@@ -1024,7 +1041,6 @@ function formatPrice(value) {
     return value.toFixed(3) + ' ر.ع';
 }
 
-// السلة: مصفوفة عناصر { index, qty } — index يشير إلى موضع المنتج في مصفوفة products
 let cart = loadCart();
 
 function loadCart() {
@@ -1039,7 +1055,7 @@ function loadCart() {
 function saveCart() {
     try {
         localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-    } catch (e) { /* تجاهل أخطاء التخزين */ }
+    } catch (e) { }
 }
 
 function addToCart(index) {
@@ -1088,7 +1104,6 @@ function renderCart() {
 
     badge.textContent = getCartCount();
 
-    // تنظيف أي عنصر في السلة يشير إلى منتج لم يعد موجودًا (بعد تعديل قائمة المنتجات)
     cart = cart.filter(item => products[item.index]);
 
     if (cart.length === 0) {
@@ -1197,6 +1212,5 @@ document.getElementById('whatsappBtn').addEventListener('click', () => {
 
 renderCart();
 </script>
-
 </body>
 </html>
