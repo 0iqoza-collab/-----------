@@ -852,17 +852,88 @@
 <script>
 // كل المنتجات مُدارة من هنا مع صور المتجر ووظائف سلة المشتريات
 const products = [
-    { category: '2', icon: 'fa-bottle-droplet', name: 'شراب العافيه', price: '5.500 ر.ع', image: 'PHOTO-2026-09-01-19-31-23.jpg' },
-    { category: '2', icon: 'fa-bottle-droplet', name: 'شراب الكركم', price: '5.000 ر.ع', tag: 'b', image: 'PHOTO-2026-09-01-19-31-24_3.jpg' },
-    { category: '2', icon: 'fa-seedling', name: 'قاهر الألم', price: '4.500 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-32_2.jpg' },
-    { category: '5', icon: 'fa-seedling', name: 'زيت لتعذيب الشيطان', price: '5.000 ر.ع', tag: 'b', image: 'PHOTO-2026-09-01-19-31-25_2.jpg' },
-    { category: '3', icon: 'fa-leaf', name: 'نعناع عضوي مجفف', price: '3.500 ر.ع', tag: 'c', image: 'PHOTO-2026-09-01-19-31-31_1.jpg' },
-    { category: '4', icon: 'fa-leaf', name: 'بابونج عضوي', price: '4.000 ر.ع', image: 'PHOTO-2026-09-01-19-31-24_4.jpg' },
-    { category: '5', icon: 'fa-spa', name: 'زيت العود الفاخر', price: '25.000 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-27_2.jpg' },
-    { category: '5', icon: 'fa-spa', name: 'زيت المسك الأبيض', price: '14.750 ر.ع', image: 'PHOTO-2026-09-01-19-31-29_3.jpg' },
-    { category: '1', icon: 'fa-box', name: 'مرهم الأعشاب الطبيعي', price: '5.500 ر.ع', image: 'PHOTO-2026-09-01-19-31-26.jpg' },
-    { category: '1', icon: 'fa-box', name: 'خلطة أعشاب مميزة', price: '7.900 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-30.jpg' },
-    { category: '1', icon: 'fa-box', name: 'زيت العنبر الفواح', price: '7.900 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-22.jpg' }
+   { category: '2',
+	  icon: 'fa-bottle-droplet',
+	  name: 'شراب العافيه',
+	  price: '5.500 ر.ع',
+	  image: 'PHOTO-2026-09-01-19-31-23.jpg' },
+	  
+	  
+    { category: '2',
+	icon: 'fa-bottle-droplet',
+	name: 'شراب الكركم',
+	price: '5.000 ر.ع',
+	tag: 'b',
+	image: 'PHOTO-2026-09-01-19-31-24_3.jpg' },
+	
+	
+    { category: '2',
+	icon: 'fa-seedling',
+	name: 'قاهر الألم',
+	price: '4.500 ر.ع',
+	tag: 'a',
+	image: 'PHOTO-2026-09-01-19-31-32_2.jpg' },
+	
+	
+    { category: '5',
+	icon: 'fa-seedling',
+	name: 'زيت لتعذيب الشيطان',
+	price: '5.000 ر.ع',
+	tag: 'b',
+	image: 'PHOTO-2026-09-01-19-31-25_2.jpg' },
+    
+	
+	{ category: '2',
+	icon: 'fa-leaf',
+	name: 'علاج الجيوب الانفيه و الصداع النصفي',
+	price: '4.000 ر.ع',
+	tag:null ,
+	image: 'PHOTO-2026-09-01-19-31-31_1.jpg' },
+
+
+    { category: '2',
+	icon: 'fa-leaf',
+	name: 'علاج جرثومة المعدة',
+	price: '5.000 ر.ع',
+	image: 'PHOTO-2026-09-01-19-31-24_4.jpg' },
+
+
+    { category: '5',
+	icon: 'fa-spa',
+	name: 'دهان لعلاج أرياح الجن و مسح السحر', 
+	price: '5.000 ر.ع',
+	tag: 'a',
+	image: 'PHOTO-2026-09-01-19-31-27_2.jpg' },
+	
+	
+    { category: '1',
+	icon: 'fa-spa',
+	name: 'عشية الحباسة',
+	price: '5.000 ر.ع',
+	image: 'PHOTO-2026-09-01-19-31-29_3.jpg' },
+    
+	
+	{ category: '1',
+	icon: 'fa-box',
+	name: 'شراب الفرقان',
+	price: '5.500 ر.ع',
+	image: 'PHOTO-2026-09-01-19-31-26.jpg' },
+    
+	
+	{ category: '1',
+	icon: 'fa-box',
+	name: 'قطرة خلاصة الريحان',
+	price: '4.000 ر.ع',
+	tag: 'a',
+	image: 'PHOTO-2026-09-01-19-31-30.jpg' },
+    
+	
+	{	category: '2',
+	icon: 'fa-box',
+	name: 'أعشاب المفاصل',
+	price: '4.800 ر.ع',
+	tag: 'a',
+	image: 'PHOTO-2026-09-01-19-31-22.jpg' }
 ];
 
 const catLabels = {
