@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الموقع وطرق الدفع - العطار محمد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #1c1d1d;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-photo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(20, 20, 20, 0.88), rgba(15, 15, 15, 0.92));
+            z-index: -1;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            margin-bottom: 50px;
+        }
+
+        .menu-btn, .icon-btn {
+            background: none;
+            border: none;
+            color: #d4af37;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+        }
+
+        .menu-btn:hover, .icon-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .navbar-right, .navbar-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-center {
+            text-align: center;
+        }
+
+        .brand-name {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #d4af37;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-sub {
+            font-size: 0.8rem;
+            color: #e5c060;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .hero-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #e5c060;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #cdb784;
+            opacity: 0.85;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #cdb784;
+            text-decoration: none;
+            font-size: 0.92rem;
+            margin-bottom: 25px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: #e5c060;
+        }
+
+        .site-footer {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #cdb784;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #e5c060;
+        }
+
+        .footer-copy {
+            color: #7a7a7a;
+            font-size: 0.78rem;
+        }
+
+        .section-label {
+            width: 100%;
+            max-width: 1000px;
+            text-align: right;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #e5c060;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label i {
+            color: #d4af37;
+        }
+
+        .categories-frame {
+            width: 100%;
+            max-width: 1000px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.15);
+            margin-bottom: 40px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .categories-grid.payment-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .payment-emoji {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .category-card.payment-card {
+            position: relative;
+        }
+
+        .payment-badge {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .payment-badge.popular {
+            background: linear-gradient(135deg, #c59b27 0%, #e5c060 100%);
+            color: #1c1d1d;
+        }
+
+        .payment-badge.iphone {
+            background: linear-gradient(135deg, #4a4a4a 0%, #8a8a8a 100%);
+            color: #ffffff;
+        }
+
+        .payment-badge.preferred {
+            background: linear-gradient(135deg, #2e7d4f 0%, #4fae7a 100%);
+            color: #ffffff;
+        }
+
+        .payment-badge.local {
+            background: linear-gradient(135deg, #8a1f1f 0%, #c0392b 100%);
+            color: #ffffff;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 24px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            cursor: default;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category-card:hover {
+            background: rgba(212, 175, 55, 0.06);
+            border-color: rgba(212, 175, 55, 0.45);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            color: #d4af37;
+            font-size: 1.7rem;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            color: #e5c060;
+            font-weight: 700;
+        }
+
+        .card-detail {
+            font-size: 0.88rem;
+            color: #d6d6d6;
+            line-height: 1.6;
+        }
+
+        /* بطاقة الخريطة */
+        .map-card {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .map-card iframe {
+            width: 100%;
+            height: 320px;
+            border: 0;
+            filter: grayscale(35%) contrast(1.05);
+            display: block;
+        }
+
+        .map-note {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #b9b9b9;
+            opacity: 0.75;
+            margin-top: -28px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.7rem;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .navbar {
+                width: 95%;
+            }
+            .section-label {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+</style>
+</head>
+<body>
+<img src="images/imag (21).jpg" alt="" class="bg-photo">
+<div class="bg-overlay"></div>
+<div class="main-container">
+<header class="navbar">
+<div class="navbar-right">
+<button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+<button class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></button>
+<a href="payment.html" class="icon-btn" aria-label="طرق الدفع"><i class="fa-solid fa-credit-card"></i></a>
+</div>
+<div class="navbar-center">
+<div class="brand-name">العطار محمد</div>
+<div class="brand-sub">طبيعي وأصيل</div>
+</div>
+<div class="navbar-left">
+<button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+</div>
+</header>
+
+<main class="hero-section">
+<a href="index.html" class="back-link"><i class="fa-solid fa-arrow-right"></i> العودة للصفحة الرئيسية</a>
+
+<h1 class="hero-title">الموقع وطرق الدفع</h1>
+<p class="hero-subtitle">تقدر توصلنا أو تستلم طلبك بسهولة، وادفع بالطريقة المناسبة لك</p>
+
+<div class="section-label"><i class="fa-solid fa-location-dot"></i> موقعنا</div>
+
+<div class="categories-frame">
+<div class="categories-grid">
+<div class="category-card">
+<i class="fa-solid fa-map-pin card-icon"></i>
+<span class="card-title">العنوان</span>
+<span class="card-detail">السويق، شمال الباطنة، سلطنة عُمان</span>
+</div>
+<div class="category-card">
+<i class="fa-solid fa-phone card-icon"></i>
+<span class="card-title">للتواصل</span>
+<span class="card-detail" dir="ltr">+968 9XXX XXXX</span>
+</div>
+<div class="category-card">
+<i class="fa-solid fa-clock card-icon"></i>
+<span class="card-title">ساعات العمل</span>
+<span class="card-detail">يوميًا من 9 صباحًا حتى 10 مساءً</span>
+</div>
+</div>
+</div>
+
+<div class="map-card">
+<iframe src="https://www.google.com/maps?q=As%20Suwayq%2C%20Al%20Batinah%2C%20Oman&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<p class="map-note">* الموقع المعروض تقريبي — استبدله برابط خرائط جوجل الخاص بمحلك الفعلي</p>
+
+<div class="section-label"><i class="fa-solid fa-credit-card"></i> طرق الدفع</div>
+
+<div class="categories-frame">
+<div class="categories-grid payment-grid" id="paymentGrid"></div>
+</div>
+
+<footer class="site-footer">
+<div class="footer-links">
+<a href="mohammed.html">الرئيسية</a>
+<a href="products.html">منتجاتنا</a>
+<a href="location.html">الموقع</a>
+<a href="payment.html">طرق الدفع</a>
+</div>
+<div class="footer-copy">© 2026 العطار محمد — جميع الحقوق محفوظة</div>
+</footer>
+</main>
+</div>
+
+<script>
+// نظام كامل لطرق الدفع — لإضافة طريقة دفع جديدة فقط أضف عنصر لهذه القائمة
+const paymentMethods = [
+    {
+        emoji: '💳',
+        name: 'Visa / Mastercard',
+        detail: 'أكثر وسائل الدفع استخدامًا عبر البطاقات البنكية',
+        badge: 'popular',
+        badgeLabel: 'الأكثر استخدامًا'
+    },
+    {
+        emoji: '🍎',
+        name: 'Apple Pay',
+        detail: 'شائع جدًا بين مستخدمي أجهزة iPhone في عُمان',
+        badge: 'iphone',
+        badgeLabel: 'لمستخدمي iPhone'
+    },
+    {
+        emoji: '💵',
+        name: 'الدفع عند الاستلام',
+        detail: 'لا يزال من أكثر الخيارات التي يفضلها الكثير من العملاء',
+        badge: 'preferred',
+        badgeLabel: 'المفضل'
+    },
+    {
+        emoji: '🇴🇲',
+        name: 'Thawani',
+        detail: 'بوابة دفع عمانية معروفة، تدعم البطاقات وتتكامل مع العديد من المتاجر',
+        badge: 'local',
+        badgeLabel: 'بوابة عُمانية'
+    }
+];
+
+function renderPaymentMethods() {
+    const grid = document.getElementById('paymentGrid');
+    grid.innerHTML = paymentMethods.map(m => `
+        <div class="category-card payment-card">
+            <span class="payment-badge ${m.badge}">${m.badgeLabel}</span>
+            <span class="payment-emoji">${m.emoji}</span>
+            <span class="card-title">${m.name}</span>
+            <span class="card-detail">${m.detail}</span>
+        </div>
+    `).join('');
+}
+
+renderPaymentMethods();
+</script>
+
+</body>
+</html>

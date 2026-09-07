@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>العطار محمد - أصالة وجودة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* خلفية الموقع: لون داكن أساسي، والصورة نفسها بتتحط كـ img عنصر خلفي تحت كل المحتوى */
+        body {
+            background-color: #1c1d1d;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* صورة الخلفية: عنصر img حقيقي بمصدر ملف، ثابت خلف كل شيء */
+        .bg-photo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* طبقة تعتيم فوق صورة الخلفية لضمان وضوح النصوص */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(20, 20, 20, 0.88), rgba(15, 15, 15, 0.92));
+            z-index: -1;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            margin-bottom: 50px;
+        }
+
+        .menu-btn, .icon-btn {
+            background: none;
+            border: none;
+            color: #d4af37;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+        }
+
+        .menu-btn:hover, .icon-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .navbar-right, .navbar-left {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-center {
+            text-align: center;
+        }
+
+        .brand-name {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #d4af37;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-sub {
+            font-size: 0.8rem;
+            color: #e5c060;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .hero-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #e5c060;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #cdb784;
+            opacity: 0.85;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+
+        .image-box {
+            position: relative;
+            width: 340px;
+            height: 240px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+            filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
+        }
+
+        .gold-glow {
+            position: absolute;
+            width: 280px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.45) 0%, rgba(212, 175, 55, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(8px);
+            animation: lightPulse 4s infinite ease-in-out;
+        }
+
+        @keyframes lightPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #c59b27 0%, #e5c060 50%, #c59b27 100%);
+            color: #1c1d1d;
+            padding: 14px 45px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 6px 22px rgba(197, 155, 39, 0.45);
+            transition: all 0.3s ease;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(197, 155, 39, 0.65);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #cdb784;
+            text-decoration: none;
+            font-size: 0.92rem;
+            margin-top: 28px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: #e5c060;
+        }
+
+        .site-footer {
+            width: 100%;
+            max-width: 850px;
+            margin-top: 50px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #cdb784;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #e5c060;
+        }
+
+        .footer-copy {
+            color: #7a7a7a;
+            font-size: 0.78rem;
+        }
+
+        .categories-frame {
+            width: 100%;
+            max-width: 850px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 20px;
+            padding: 30px 20px 20px 20px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 22px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category-card:hover {
+            background: rgba(212, 175, 55, 0.06);
+            border-color: rgba(212, 175, 55, 0.45);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            color: #d4af37;
+            font-size: 1.6rem;
+            opacity: 0.85;
+        }
+
+        .category-card span {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .navbar {
+                width: 95%;
+            }
+            body {
+                background-attachment: scroll;
+            }
+        }
+</style>
+</head>
+<body>
+<img src="image.jpg" alt="" class="bg-photo">
+<div class="bg-overlay"></div>
+<div class="main-container">
+<header class="navbar">
+<div class="navbar-right">
+<button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+<a href="products.html" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+<a href="payment.html" class="icon-btn" aria-label="طرق الدفع"><i class="fa-solid fa-credit-card"></i></a>
+</div>
+<div class="navbar-center">
+<div class="brand-name">العطار محمد</div>
+<div class="brand-sub">طبيعي وأصيل</div>
+</div>
+<div class="navbar-left">
+<button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+</div>
+</header>
+
+<main class="hero-section">
+<h1 class="hero-title">جوهر الطبيعة والجودة</h1>
+<p class="hero-subtitle">أعشاب وزيوت طبيعية أصيلة بأيدٍ موثوقة</p>
+
+<div class="image-box">
+<div class="gold-glow"></div>
+<img src="image.jpg" alt="شعار العطار محمد" class="main-image">
+</div>
+
+<a href="products.html" class="cta-button">تصفح منتجاتنا</a>
+
+<div class="categories-frame">
+<div class="categories-grid">
+<a href="products.html#oils" class="category-card">
+<i class="fa-solid fa-bottle-droplet card-icon"></i>
+<span>زيوت عطرية</span>
+</a>
+<a href="products.html#rare" class="category-card">
+<i class="fa-solid fa-seedling card-icon"></i>
+<span>أعشاب نادرة</span>
+</a>
+<a href="products.html#organic" class="category-card">
+<i class="fa-solid fa-leaf card-icon"></i>
+<span>أعشاب عضوية</span>
+</a>
+<a href="products.html#aroma" class="category-card">
+<i class="fa-solid fa-spa card-icon"></i>
+<span>زيوت أروماتية</span>
+</a>
+</div>
+</div>
+
+<a href="location.html" class="back-link"><i class="fa-solid fa-location-dot"></i> الموقع وطرق الدفع</a>
+
+<footer class="site-footer">
+<div class="footer-links">
+<a href="mohammed.html">الرئيسية</a>
+<a href="products.html">منتجاتنا</a>
+<a href="location.html">الموقع</a>
+<a href="payment.html">طرق الدفع</a>
+</div>
+<div class="footer-copy">© 2026 العطار محمد — جميع الحقوق محفوظة</div>
+</footer>
+</main>
+</div>
+</body>
+</html>
