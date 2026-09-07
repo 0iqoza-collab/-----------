@@ -791,8 +791,8 @@
 <div class="filter-chip" data-filter="2">أعشاب</div>
 <div class="filter-chip" data-filter="3">علاجات طبيعية</div>
 <div class="filter-chip" data-filter="4">صابون وشامبو</div>
-<div class="filter-chip" data-filter="4">أدوية لعلاج المس و السحر</div>
-<div class="filter-chip" data-filter="5">منتجات أخرى</div>
+<div class="filter-chip" data-filter="5">أدوية علاج المس و السحر</div>
+<div class="filter-chip" data-filter="6">منتجات أخرى</div>
 </div>
 
 <div class="categories-frame">
@@ -852,14 +852,14 @@
 <script>
 // كل المنتجات مُدارة من هنا مع صور المتجر ووظائف سلة المشتريات
 const products = [
-   { category: '2',
+   { category: '1',
 	  icon: 'fa-bottle-droplet',
 	  name: 'شراب العافيه',
 	  price: '5.500 ر.ع',
 	  image: 'PHOTO-2026-09-01-19-31-23.jpg' },
 	  
 	  
-    { category: '2',
+    { category: '1',
 	icon: 'fa-bottle-droplet',
 	name: 'شراب الكركم',
 	price: '5.000 ر.ع',
@@ -867,7 +867,7 @@ const products = [
 	image: 'PHOTO-2026-09-01-19-31-24_3.jpg' },
 	
 	
-    { category: '2',
+    { category: '1',
 	icon: 'fa-seedling',
 	name: 'قاهر الألم',
 	price: '4.500 ر.ع',
@@ -883,7 +883,7 @@ const products = [
 	image: 'PHOTO-2026-09-01-19-31-25_2.jpg' },
     
 	
-	{ category: '2',
+	{ category: '1',
 	icon: 'fa-leaf',
 	name: 'علاج الجيوب الانفيه و الصداع النصفي',
 	price: '4.000 ر.ع',
@@ -891,7 +891,7 @@ const products = [
 	image: 'PHOTO-2026-09-01-19-31-31_1.jpg' },
 
 
-    { category: '2',
+    { category: '1',
 	icon: 'fa-leaf',
 	name: 'علاج جرثومة المعدة',
 	price: '5.000 ر.ع',
@@ -906,7 +906,7 @@ const products = [
 	image: 'PHOTO-2026-09-01-19-31-27_2.jpg' },
 	
 	
-    { category: '1',
+    { category: '2',
 	icon: 'fa-spa',
 	name: 'عشية الحباسة',
 	price: '5.000 ر.ع',
@@ -937,11 +937,12 @@ const products = [
 ];
 
 const catLabels = {
-    1: 'أعشاب',
-    2: 'علاجات طبيعية',
-    3: 'صابون وشامبو',
-    4: 'منتجات أخرى',
-    5: 'أدوية علاج المس و السحر'
+    1:'زيوت طبية',
+	2: 'أعشاب',
+    3: 'علاجات طبيعية',
+    4: 'صابون وشامبو',
+	5: 'أدوية علاج المس و السحر',
+    6: 'منتجات أخرى'
 };
 
 const badgeLabels = {
