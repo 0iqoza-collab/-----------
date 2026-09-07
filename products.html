@@ -1187,7 +1187,7 @@ document.getElementById('whatsappBtn').addEventListener('click', () => {
 
     message += `----------------------\n`;
     message += `💰 الإجمالي الكلي: ${formatPrice(getCartTotal())}\n\n`;
-    message += `الرجاء تأكيد الطلب وطريقة الاستلام/التوصيل المناسبة. شكرًا لكم 🌸`;
+    message += `الرجاء تأكيد الطلب وطريقة الاستلام/التوصيل المناسب. شكرًا لكم 🌸`;
 
     const encoded = encodeURIComponent(message);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
