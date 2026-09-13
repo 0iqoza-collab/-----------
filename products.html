@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -136,7 +135,6 @@
             font-weight: 500;
         }
 
-        /* زر العودة بنفس روح الـ cta-button لكن بمظهر ثانوي */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -190,28 +188,6 @@
             font-size: 0.78rem;
         }
 
-        .cta-button {
-            background: linear-gradient(135deg, #c59b27 0%, #e5c060 50%, #c59b27 100%);
-            color: #1c1d1d;
-            padding: 14px 45px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 25px;
-            box-shadow: 0 6px 22px rgba(197, 155, 39, 0.45);
-            transition: all 0.3s ease;
-            margin-bottom: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(197, 155, 39, 0.65);
-        }
-
-        /* شرائح فلترة بنفس منطق الإطار الذهبي الخفيف */
         .filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -239,7 +215,6 @@
             border-color: transparent;
         }
 
-        /* نفس إطار التصنيفات بالضبط من الصفحة الرئيسية، لكن بشبكة أوسع للمنتجات */
         .categories-frame {
             width: 100%;
             max-width: 1000px;
@@ -256,7 +231,6 @@
             align-items: stretch;
         }
 
-        /* بطاقة منتج مستقلة بحدود واضحة وتقسيم داخلي منظم */
         .category-card {
             position: relative;
             background: rgba(255, 255, 255, 0.035);
@@ -323,11 +297,6 @@
 
         .product-badge.b {
             background: linear-gradient(135deg, #8a1f1f 0%, #c0392b 100%);
-            color: #ffffff;
-        }
-
-.product-badge.c {
-            background: linear-gradient(135deg, #26a69a 0%, #00838f 100%);
             color: #ffffff;
         }
 
@@ -756,7 +725,7 @@
 </style>
 </head>
 <body>
-<img src="image.jpg" alt="" class="bg-photo">
+<img src="image.jpg" alt="" class="bg-photo" onerror="this.style.display='none'">
 <div class="bg-overlay"></div>
 <div class="main-container">
 <header class="navbar">
@@ -786,8 +755,7 @@
 
 <div class="filter-bar">
 <div class="filter-chip active" data-filter="all">الكل</div>
-<div class="filter-chip" data-filter="1">زيوت طبية
-</div>
+<div class="filter-chip" data-filter="1">زيوت طبية</div>
 <div class="filter-chip" data-filter="2">أعشاب</div>
 <div class="filter-chip" data-filter="3">علاجات طبيعية</div>
 <div class="filter-chip" data-filter="4">صابون وشامبو</div>
@@ -822,7 +790,7 @@
 <div class="cart-empty" id="cartEmpty">
 <i class="fa-solid fa-cart-shopping"></i>
 <p>سلتك فارغة حاليًا</p>
-<span>اضغط على أي منتج لإضافته إلى السلة</span>
+<span>اضغط على أي منتج للإضافة إلى السلة</span>
 </div>
 
 <div class="cart-footer" id="cartFooter">
@@ -843,14 +811,13 @@
 <a href="location.html">الموقع</a>
 <a href="payment.html">طرق الدفع</a>
 </div>
-<div class="footer-copy">© 2026 العطار محمد — جميع الحقوق محفوظة</div>
+<div class="footer-copy">©️ 2026 العطار محمد — جميع الحقوق محفوظة</div>
 </footer>
 
 </main>
 </div>
 
 <script>
-// كل المنتجات مُدارة من هنا مع صور المتجر ووظائف سلة المشتريات
 const products = [
 { category: '1', icon: 'fa-bottle-droplet', name: 'شراب العافيه', price: '5.500 ر.ع', image: 'PHOTO-2026-09-01-19-31-23.jpg' },
 { category: '1', icon: 'fa-bottle-droplet', name: 'شراب الكركم', price: '5.000 ر.ع', tag: 'b', image: 'PHOTO-2026-09-01-19-31-24_3.jpg' },
@@ -900,23 +867,23 @@ const products = [
 { category: '1', icon: 'fa-box', name: 'دواء لقتل القمل', price: '1.500 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-31_4.jpg' },
 { category: '1', icon: 'fa-box', name: 'دهان عرق النساء', price: '4.700 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-32.jpg' },
 { category: '1', icon: 'fa-box', name: 'زيت الغزال لعلاج مشاكل الشعر', price: '5.000 ر.ع', tag: 'a', image: 'PHOTO-2026-09-01-19-31-32_1.jpg' },
-{ category: '1', icon: 'fa-box', name: 'زيت راحة الفورية', price: '5.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 9.09.58 PM (1).jpg' },
-{ category: '1', icon: 'fa-box', name: 'معجون رمان لعلاج البواسير', price: '6.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.04 PM.jpg' },
-{ category: '1', icon: 'fa-box', name: 'كريم توتال وايت لتبييض الإبط والأماكن الحساسة', price: '4.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM.jpg' },
-{ category: '1', icon: 'fa-box', name: 'زبدة الشيا', price: '2.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (1).jpg' },
-{ category: '1', icon: 'fa-box', name: 'عشبة تونكات علي عكازة علي', price: '5.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (2).jpg' },
-{ category: '1', icon: 'fa-box', name: 'فايبوجل أورانج', price: '3.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (3).jpg' },
-{ category: '1', icon: 'fa-box', name: 'مانع تعرق ومبيض فوري', price: '1.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM.jpg' },
-{ category: '1', icon: 'fa-box', name: 'قهوة سريم', price: '2.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM (1).jpg' },
-{ category: '1', icon: 'fa-box', name: 'العسل التركي', price: '5.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM (2).jpg' }
+{ category: '1', icon: 'fa-box', name: 'العسل التركي', price: '5.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 9.09.58 PM (1).jpg' },
+{ category: '1', icon: 'fa-box', name: 'زيت راحه الفورية', price: '5.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.04 PM.jpg' },
+{ category: '1', icon: 'fa-box', name: 'عشبة تونكات علي عكازة علي', price: '5.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM.jpg' },
+{ category: '1', icon: 'fa-box', name: 'معجون رمان لعلاج البواسير', price: '6.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (1).jpg' },
+{ category: '1', icon: 'fa-box', name: 'كريم توتال وايت لتبييض الإبط والأماكن الحساسة', price: '4.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (2).jpg' },
+{ category: '1', icon: 'fa-box', name: 'زبدة الشيا', price: '2.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.05 PM (3).jpg' },
+{ category: '1', icon: 'fa-box', name: 'قهوة سريم', price: '2.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM.jpg' },
+{ category: '1', icon: 'fa-box', name: 'فايبوجل أورانج', price: '3.000 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM (1).jpg' },
+{ category: '1', icon: 'fa-box', name: 'مانع تعرق ومبيض فوري', price: '1.500 ر.ع', tag: 'a', image: 'WhatsApp Image 2026-09-13 at 12.41.06 PM (2).jpg' }
 ];
 
 const catLabels = {
     1:'زيوت طبية',
-	2: 'أعشاب',
+    2: 'أعشاب',
     3: 'علاجات طبيعية',
     4: 'صابون وشامبو',
-	5: 'أدوية علاج المس و السحر',
+    5: 'أدوية علاج المس و السحر',
     6: 'منتجات أخرى'
 };
 
@@ -933,9 +900,7 @@ function renderProducts() {
     grid.innerHTML = products.map((p, i) => `
         <div class="category-card" data-category="${p.category}" data-index="${i}">
             ${p.tag && badgeLabels[p.tag] ? `<span class="product-badge ${p.tag}">${badgeLabels[p.tag]}</span>` : ''}
-            ${p.image
-                ? `<img src="${p.image}" alt="${p.name}" class="product-photo">`
-                : `<div class="card-icon-wrap"><i class="fa-solid ${p.icon} card-icon"></i></div>`}
+            <img src="${p.image}" alt="${p.name}" class="product-photo" onerror="this.onerror=null; this.replaceWith(Object.assign(document.createElement('div'), {className: 'card-icon-wrap', innerHTML: '<i class=\\'fa-solid ' + p.icon + ' card-icon\\'></i>'}));">
             <div class="card-info">
                 <span class="product-cat">${catLabels[p.category] || ''}</span>
                 <span class="product-label">${p.name}</span>
@@ -955,13 +920,12 @@ function renderProducts() {
 
 renderProducts();
 
-// تصحيح منطق الفلترة للأزرار ليعمل بسلاسة
 const chips = document.querySelectorAll('.filter-chip');
 chips.forEach(chip => {
     chip.addEventListener('click', () => {
         chips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
-        const filter = chip.dataset.filter; // القيمة الموجودة في الزر (مثل '1', '2', 'all' أو نص)
+        const filter = chip.dataset.filter;
         
         document.querySelectorAll('.category-card[data-category]').forEach(card => {
             const cardCat = card.dataset.category;
@@ -973,10 +937,6 @@ chips.forEach(chip => {
         });
     });
 });
-
-/* ============================
-   نظام سلة المشتريات + حقول التوصيل والطلب عبر واتساب
-   ============================ */
 
 const WHATSAPP_NUMBER = '96897104979';
 const CART_STORAGE_KEY = 'attar_mohammed_cart';
@@ -1072,13 +1032,13 @@ function renderCart() {
         if (!checkoutForm) {
             checkoutForm = document.createElement('div');
             checkoutForm.id = 'checkoutFormContainer';
-            checkoutForm.style.cssText = 'margin: 15px 0; padding: 12px; background: #f9f9f9; border-radius: 8px; border: 1px solid #ddd;';
+            checkoutForm.style.cssText = 'margin: 15px 0; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid rgba(212,175,55,0.2);';
             checkoutForm.innerHTML = `
-                <p style="font-weight: bold; margin-bottom: 8px; font-size: 0.95rem; color: #333;"><i class="fa-solid fa-truck-fast"></i> بيانات التوصيل:</p>
-                <input type="text" id="clientPhone" placeholder="رقم الهاتف (مثال: 9xxxxxxx)" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
-                <input type="text" id="clientWilayat" placeholder="الولاية (مثال: الرستاق، مسقط...)" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
-                <input type="text" id="clientRegion" placeholder="المنطقة / القرية" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" />
-                <select id="clientDeliveryType" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; background: white;">
+                <p style="font-weight: bold; margin-bottom: 8px; font-size: 0.95rem; color: #e5c060;"><i class="fa-solid fa-truck-fast"></i> بيانات التوصيل:</p>
+                <input type="text" id="clientPhone" placeholder="رقم الهاتف (مثال: 9xxxxxxx)" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.2); color: #fff; border-radius: 4px; box-sizing: border-box;" />
+                <input type="text" id="clientWilayat" placeholder="الولاية (مثال: مسقط، السيب...)" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.2); color: #fff; border-radius: 4px; box-sizing: border-box;" />
+                <input type="text" id="clientRegion" placeholder="المنطقة / القرية" style="width: 100%; padding: 8px; margin-bottom: 8px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.2); color: #fff; border-radius: 4px; box-sizing: border-box;" />
+                <select id="clientDeliveryType" style="width: 100%; padding: 8px; border: 1px solid rgba(212,175,55,0.3); background: #222; color: #fff; border-radius: 4px; box-sizing: border-box;">
                     <option value="">-- اختر نوع التوصيل --</option>
                     <option value="توصيل منزلي">توصيل منزلي</option>
                     <option value="استلام من المحل">استلام من المحل</option>
@@ -1092,9 +1052,7 @@ function renderCart() {
             const lineTotal = parsePrice(p.price) * item.qty;
             return `
             <div class="cart-item">
-                ${p.image
-                    ? `<img src="${p.image}" alt="${p.name}">`
-                    : `<div class="card-icon-wrap"><i class="fa-solid ${p.icon} card-icon" style="font-size:1.1rem;"></i></div>`}
+                <img src="${p.image}" alt="${p.name}" onerror="this.onerror=null; this.replaceWith(Object.assign(document.createElement('div'), {className: 'card-icon-wrap', style: 'width:56px;height:56px;', innerHTML: '<i class=\\'fa-solid ' + p.icon + ' card-icon\\'></i>'}));">
                 <div class="cart-item-info">
                     <span class="cart-item-name">${p.name}</span>
                     <span class="cart-item-price">${p.price} × ${item.qty}</span>
